@@ -104,6 +104,8 @@ def main(config_file, target, listening=True, verbose = 2,output_file=""):
             return
 
         if output_file != "" :
+            if '../' in output_file or '..\\' in output_file:
+                raise Exception('Invalid file path')
             fd = open(output_file, 'w')
         printed = False              
         for key, value in message_queue.items():

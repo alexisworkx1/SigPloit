@@ -101,6 +101,8 @@ def main(argv=None):
             return            
         ##read file
         teids = []
+        if '../' in opts.teids_file or '..\\' in opts.teids_file:
+            raise Exception('Invalid file path')
         with open(opts.teids_file) as f:
             teids = f.readlines()
         teids = [int(t.strip(),16) for t in teids]

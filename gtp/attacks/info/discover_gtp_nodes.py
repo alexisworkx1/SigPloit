@@ -101,6 +101,8 @@ def main(config_file, target, listening=True, verbose = 2, output_file='results.
         gtp_nodes = []
 
         if output_file != "" :
+            if '../' in output_file or '..\\' in output_file:
+                raise Exception('Invalid file path')
             fd = open(output_file, 'w')
 
         for key, value in message_queue.items():
